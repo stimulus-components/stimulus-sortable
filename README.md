@@ -4,7 +4,7 @@
 [![](https://img.shields.io/npm/v/stimulus-sortable.svg)](https://www.npmjs.com/package/stimulus-sortable)
 [![](https://github.com/stimulus-components/stimulus-sortable/workflows/Lint/badge.svg)](https://github.com/stimulus-components/stimulus-sortable)
 [![](https://img.shields.io/github/license/stimulus-components/stimulus-sortable.svg)](https://github.com/stimulus-components/stimulus-sortable)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bc6c7113-e3e7-4d1f-9508-4b631eea2e70/deploy-status)](https://stimulus-sortable.netlify.com)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a8341029-7f19-443d-88aa-02c6325b389e/deploy-status)](https://stimulus-sortable.netlify.com)
 
 ## Getting started
 
