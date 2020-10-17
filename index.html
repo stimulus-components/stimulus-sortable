@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <title>Stimulus Sortable</title>
+    <script type="module" src="./src/index.js" defer></script>
+    <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js" defer></script>
+
+    <script type="module" defer>
+      import Sortable from './src/index.js'
+
+      const application = Stimulus.Application.start()
+      application.register('sortable', Sortable)
+    </script>
+
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        display: inline-block;
+        margin: 0 10px;
+      }
+
+      a {
+        color: #667eea;
+        display: inline-block;
+      }
+
+      .badges a {
+        margin: 0 0.25rem;
+      }
+
+      pre code {
+        border-radius: 0.5rem;
+        text-align: left;
+        font-family: Menlo, 'Courier New', Courier, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full max-w-6xl mx-auto my-24 p-4">
+      <h1 class="text-center mb-8 text-5xl font-bold">Stimulus Sortable</h1>
+
+      <p class="text-center mb-4">
+        A Stimulus controller to reorder lists with drag-and-drop.
+      </p>
+
+      <p class="text-center badges">
+        <a href="https://www.npmjs.com/package/stimulus-sortable">
+          <img src="https://img.shields.io/npm/dt/stimulus-sortable.svg" />
+        </a>
+
+        <a href="https://www.npmjs.com/package/stimulus-sortable">
+          <img src="https://img.shields.io/npm/v/stimulus-sortable.svg" />
+        </a>
+
+        <a href="https://github.com/stimulus-components/stimulus-sortable">
+          <img src="https://github.com/stimulus-components/stimulus-sortable/workflows/Lint/badge.svg" />
+        </a>
+
+        <a href="https://github.com/stimulus-components/stimulus-sortable">
+          <img src="https://img.shields.io/github/license/stimulus-components/stimulus-sortable.svg" />
+        </a>
+
+        <a href="https://stimulus-sortable.netlify.com/">
+          <img src="https://api.netlify.com/api/v1/badges/bc6c7113-e3e7-4d1f-9508-4b631eea2e70/deploy-status" />
+        </a>
+      </p>
+
+      <h2 class="text-center text-2xl font-bold my-4">Essential links</h2>
+
+      <ul class="text-center mb-8">
+        <li>
+          <a href="https://github.com/stimulus-components/stimulus-sortable" target="_blank" rel="noopener">
+            Github
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.npmjs.com/package/stimulus-sortable" target="_blank" rel="noopener">
+            Npm
+          </a>
+        </li>
+      </ul>
+
+      <section class="mt-16">
+        <ul data-controller="sortable">
+          <li class="block mb-4 p-4 border border-8 border-gray-600 rounded-sm">Pet the cat</li>
+          <li class="block mb-4 p-4 border border-8 border-gray-600 rounded-sm">Get the groceries</li>
+        </ul>
+
+        <h2 class="text-xl mt-8 mb-2">With custom handler</h2>
+        <ul data-controller="sortable" data-sortable-handle=".handle">
+          <li class="block mb-4 p-4 border border-8 border-gray-600 rounded-sm">
+            <svg
+              class="handle w-6 h-6 inline cursor-pointer"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
+            </svg>
+            Pet the cat
+          </li>
+
+          <li class="block mb-4 p-4 border border-8 border-gray-600 rounded-sm">
+            <svg
+              class="handle w-6 h-6 inline cursor-pointer"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
+            </svg>
+            Get the groceries
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
