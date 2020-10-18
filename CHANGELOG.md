@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2020-10-19
+
+### Added
+- Adding data-sortable-resource-name option  2021d57
+
+### Changed
+- Importing rails-ujs
+- Using window._rails_loaded  4dc14c3
+
 ## [1.0.0] - 2020-10-15
 
 ### Added
