@@ -13,7 +13,7 @@ export default class extends Controller {
   }
 
   end ({ item, newIndex }) {
-    if (!item.dataset.sortableUpdateUrl || typeof Rails === 'undefined') return
+    if (!item.dataset.sortableUpdateUrl || !window._rails_loaded) return
 
     const data = new FormData()
     data.append('position', newIndex + 1)
