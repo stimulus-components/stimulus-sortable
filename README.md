@@ -86,7 +86,10 @@ In your views:
 If you're using [Rails UJS](https://github.com/rails/rails/tree/master/actionview/app/assets/javascripts) in your application, you can add an url as data-attribute on every items to perform an AJAX call to update the new position.
 
 ```html
-<ul data-controller="sortable">
+<ul
+  data-controller="sortable"
+  data-sortable-resource-name="todo"
+>
   <%= @todos.each do |todo| %>
     <!-- <li data-sortable-update-url="/todos/1">Pet the cat</li> -->
     <li data-sortable-update-url="<%= todo_path(todo) %>"><%= todo.description %></li>
@@ -94,10 +97,15 @@ If you're using [Rails UJS](https://github.com/rails/rails/tree/master/actionvie
 </ul>
 ```
 
+By default, `position` will be used as param in a PATCH request.
+
+If you use `data-sortable-resource-name`, the name will be used. For instance, `todo[position]`.
+
 ## Configuration
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
+| `data-sortable-resource-name` | `undefined` | Name of the resource to use as AJAX param. | ✅ |
 | `data-sortable-animation` | `150` | Animation speed moving items when sorting in milliseconds. `0` to disable. | ✅ |
 | `data-sortable-handle` | `undefined` | Drag handle selector within list items. | ✅ |
 
