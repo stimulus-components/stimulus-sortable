@@ -3,11 +3,16 @@ import Sortable from 'sortablejs'
 import Rails from '@rails/ujs'
 
 export default class extends Controller {
+
+  initialize () {
+    this.end = this.end.bind(this)
+  }
+
   connect () {
     const options = {
       animation: this.data.get('animation') || 150,
       handle: this.data.get('handle') || undefined,
-      onEnd: this.end.bind(this)
+      onEnd: this.end
     }
 
     this.sortable = new Sortable(this.element, options)
