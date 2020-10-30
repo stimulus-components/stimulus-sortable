@@ -119,7 +119,7 @@ import Sortable from "stimulus-sortable"
 export default class extends Sortable {
   connect() {
     super.connect()
-    console.log("Do what you cant here.")
+    console.log("Do what you want here.")
   }
 }
 ```
