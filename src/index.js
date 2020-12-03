@@ -9,13 +9,15 @@ export default class extends Controller {
   }
 
   connect () {
-    const options = {
-      animation: this.data.get('animation') || 150,
-      handle: this.data.get('handle') || undefined,
-      onEnd: this.end
-    }
+    this.sortable = new Sortable(this.element, {
+      ...this.defaultOptions,
+      ...this.options
+    })
+  }
 
-    this.sortable = new Sortable(this.element, options)
+  disconnect () {
+    this.sortable.destroy()
+    this.sortable = undefined
   }
 
   end ({ item, newIndex }) {
@@ -32,5 +34,17 @@ export default class extends Controller {
       type: 'PATCH',
       data
     })
+  }
+
+  get options () {
+    return {
+      animation: this.data.get('animation') || this.defaultOptions.animation || 150,
+      handle: this.data.get('handle') || this.defaultOptions.handle || undefined,
+      onEnd: this.end
+    }
+  }
+
+  get defaultOptions () {
+    return {}
   }
 }
