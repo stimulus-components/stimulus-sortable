@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2020-12-05
+
+### Added
+
+- Support for Stimulus 2.0
+
+### Changed
+
+- **Breaking** Using the new `values` static property
+
+```diff
+- <ul data-controller="sortable" data-sortable-handle=".handle">
++ <ul data-controller="sortable" data-sortable-handle-value=".handle">
+```
+
 ## [1.2.0] - 2020-12-03
 
 ### Changed

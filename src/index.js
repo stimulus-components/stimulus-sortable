@@ -3,6 +3,12 @@ import Sortable from 'sortablejs'
 import Rails from '@rails/ujs'
 
 export default class extends Controller {
+  static values = {
+    resourceName: String,
+    animation: Number,
+    handle: String
+  }
+
   initialize () {
     this.end = this.end.bind(this)
   }
@@ -22,7 +28,7 @@ export default class extends Controller {
   end ({ item, newIndex }) {
     if (!item.dataset.sortableUpdateUrl || !window._rails_loaded) return
 
-    const resourceName = this.data.get('resourceName')
+    const resourceName = this.resourceNameValue
     const param = resourceName ? `${resourceName}[position]` : 'position'
 
     const data = new FormData()
@@ -37,8 +43,8 @@ export default class extends Controller {
 
   get options () {
     return {
-      animation: this.data.get('animation') || this.defaultOptions.animation || 150,
-      handle: this.data.get('handle') || this.defaultOptions.handle || undefined,
+      animation: this.animationValue || this.defaultOptions.animation || 150,
+      handle: this.handleValue || this.defaultOptions.handle || undefined,
       onEnd: this.end
     }
   }
