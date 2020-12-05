@@ -3,7 +3,6 @@ import Sortable from 'sortablejs'
 import Rails from '@rails/ujs'
 
 export default class extends Controller {
-
   initialize () {
     this.end = this.end.bind(this)
   }
