@@ -5,6 +5,7 @@ import Rails from '@rails/ujs'
 export default class extends Controller {
   static values = {
     resourceName: String,
+    paramName: String,
     animation: Number,
     handle: String
   }
@@ -29,7 +30,8 @@ export default class extends Controller {
     if (!item.dataset.sortableUpdateUrl || !window._rails_loaded) return
 
     const resourceName = this.resourceNameValue
-    const param = resourceName ? `${resourceName}[position]` : 'position'
+    const paramName = this.paramNameValue || 'position'
+    const param = resourceName ? `${resourceName}[${paramName}]` : paramName
 
     const data = new FormData()
     data.append(param, newIndex + 1)
