@@ -1,6 +1,6 @@
 {
   "name": "stimulus-sortable",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A Stimulus controller to reorder lists with drag-and-drop.",
   "repository": "git@github.com:stimulus-components/stimulus-sortable.git",
   "author": "Guillaume Briday <guillaumebriday@gmail.com>",
