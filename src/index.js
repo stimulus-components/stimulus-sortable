@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 import Sortable from 'sortablejs'
-import Rails from '@rails/ujs'
+import { patch } from '@rails/request.js'
 
 export default class extends Controller {
   static values = {
@@ -26,8 +26,8 @@ export default class extends Controller {
     this.sortable = undefined
   }
 
-  end ({ item, newIndex }) {
-    if (!item.dataset.sortableUpdateUrl || !window._rails_loaded) return
+  async end ({ item, newIndex }) {
+    if (!item.dataset.sortableUpdateUrl) return
 
     const resourceName = this.resourceNameValue
     const paramName = this.paramNameValue || 'position'
@@ -36,11 +36,14 @@ export default class extends Controller {
     const data = new FormData()
     data.append(param, newIndex + 1)
 
-    Rails.ajax({
-      url: item.dataset.sortableUpdateUrl,
-      type: 'PATCH',
-      data
-    })
+    await patch(item.dataset.sortableUpdateUrl, { body: data })
+
+    this.ended()
+  }
+
+  ended () {
+    const event = new CustomEvent('sortable-ended')
+    window.dispatchEvent(event)
   }
 
   get options () {
