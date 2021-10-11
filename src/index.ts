@@ -13,7 +13,10 @@ export default class extends Controller {
 
   static values = {
     resourceName: String,
-    paramName: String,
+    paramName: {
+      type: String,
+      default: 'position'
+    },
     animation: Number,
     handle: String
   }
@@ -37,9 +40,7 @@ export default class extends Controller {
   end ({ item, newIndex }) {
     if (!item.dataset.sortableUpdateUrl || !window._rails_loaded) return
 
-    const resourceName = this.resourceNameValue
-    const paramName = this.paramNameValue || 'position'
-    const param = resourceName ? `${resourceName}[${paramName}]` : paramName
+    const param = this.resourceNameValue ? `${this.resourceNameValue}[${this.paramNameValue}]` : this.paramNameValue
 
     const data = new FormData()
     data.append(param, newIndex + 1)
