@@ -1,8 +1,16 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 import Sortable from 'sortablejs'
-import Rails from '@rails/ujs'
+import * as Rails from '@rails/ujs'
 
 export default class extends Controller {
+  animationValue: number
+  resourceNameValue: string
+  paramNameValue: string
+  sortable: Sortable
+  handleValue: string
+  // @ts-ignore
+  element: HTMLElement
+
   static values = {
     resourceName: String,
     paramName: String,
@@ -43,7 +51,7 @@ export default class extends Controller {
     })
   }
 
-  get options () {
+  get options (): Sortable.Options {
     return {
       animation: this.animationValue || this.defaultOptions.animation || 150,
       handle: this.handleValue || this.defaultOptions.handle || undefined,
@@ -51,7 +59,7 @@ export default class extends Controller {
     }
   }
 
-  get defaultOptions () {
+  get defaultOptions (): Sortable.Options {
     return {}
   }
 }

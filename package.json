@@ -7,35 +7,16 @@
   "license": "MIT",
   "homepage": "https://github.com/stimulus-components/stimulus-sortable",
   "private": false,
-  "esnext": "dist-src/index.js",
-  "main": "dist-node/index.js",
-  "module": "dist-web/index.js",
-  "@pika/pack": {
-    "pipeline": [
-      [
-        "@pika/plugin-standard-pkg"
-      ],
-      [
-        "@pika/plugin-build-web"
-      ],
-      [
-        "@pika/plugin-build-node"
-      ]
-    ]
-  },
+  "main": "dist/stimulus-sortable.umd.js",
+  "module": "dist/stimulus-sortable.es.js",
   "scripts": {
-    "format": "prettier-standard  '**/*.{js,css,html}' --format",
-    "lint": "prettier-standard  '**/*.{js,css,html}' --lint",
-    "dev": "snowpack dev",
-    "prod": "snowpack build",
-    "build": "pika build",
-    "pika:publish": "pika publish --no-tests --no-2fa",
-    "version": "yarn build"
-  },
-  "dependencies": {
-    "@rails/ujs": "^6.0.3-4",
-    "sortablejs": "^1.12.0",
-    "stimulus": "^2.0.0"
+    "format": "prettier-standard  '**/*.{ts,css,html}' --format",
+    "lint": "prettier-standard  '**/*.{ts,css,html}' --lint",
+    "dev": "vite",
+    "prod": "vite build --config /dev/null",
+    "build": "tsc --noEmit && vite build",
+    "version": "yarn build",
+    "np": "np --no-2fa --no-tests"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
