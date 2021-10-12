@@ -24,8 +24,7 @@
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-typescript": "^7.15.0",
     "@hotwired/stimulus": "^3.0.1",
-    "@rails/ujs": "^6.1.4-1",
-    "@types/rails__ujs": "^6.0.1",
+    "@rails/request.js": "^0.0.5",
     "@types/sortablejs": "^1.10.7",
     "np": "^7.5.0",
     "prettier-standard": "16.4.1",
@@ -35,7 +34,7 @@
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3.0.1",
-    "@rails/ujs": "^6.1.4-1",
+    "@rails/request.js": "^0.0.5",
     "sortablejs": "^1.14.0"
   }
 }

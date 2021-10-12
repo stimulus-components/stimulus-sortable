@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2021-10-12
+
+### Chore
+
+- Moving from `@rails/ujs` to the new `@rails/request.js`
+
 ## [3.0.0] - 2021-10-11
 
 ### Chore
