@@ -6,6 +6,7 @@ export default class extends Controller {
   animationValue: number
   resourceNameValue: string
   paramNameValue: string
+  responseKindValue: string
   sortable: Sortable
   handleValue: string
   // @ts-ignore
@@ -16,6 +17,10 @@ export default class extends Controller {
     paramName: {
       type: String,
       default: 'position'
+    },
+    responseKind: {
+      type: String,
+      default: 'html'
     },
     animation: Number,
     handle: String
@@ -45,7 +50,7 @@ export default class extends Controller {
     const data = new FormData()
     data.append(param, newIndex + 1)
 
-    await patch(item.dataset.sortableUpdateUrl, { body: data })
+    await patch(item.dataset.sortableUpdateUrl, { body: data, responseKind: this.responseKindValue })
   }
 
   get options (): Sortable.Options {
