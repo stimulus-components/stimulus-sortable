@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Adding `responseKind` option.
+
 ## [3.1.0] - 2021-10-12
 
 ### Chore
