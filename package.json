@@ -13,28 +13,28 @@
     "format": "prettier-standard  '**/*.{ts,css,html}' --format",
     "lint": "prettier-standard  '**/*.{ts,css,html}' --lint",
     "dev": "vite",
-    "prod": "vite build --config /dev/null",
+    "prod": "vite build --mode netlify",
     "build": "tsc --noEmit && vite build",
     "version": "yarn build",
     "np": "np --no-2fa --no-tests"
   },
   "devDependencies": {
-    "@babel/core": "7.15.8",
+    "@babel/core": "7.19.6",
     "@babel/plugin-syntax-class-properties": "7.12.13",
-    "@babel/preset-env": "^7.15.8",
-    "@babel/preset-typescript": "^7.15.0",
-    "@hotwired/stimulus": "^3.0.1",
-    "@rails/request.js": "^0.0.5",
-    "@types/sortablejs": "^1.10.7",
-    "np": "^7.5.0",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/preset-typescript": "^7.18.6",
+    "@hotwired/stimulus": "^3.1.1",
+    "@rails/request.js": "^0.0.6",
+    "@types/sortablejs": "^1.15.0",
+    "np": "^7.6.2",
     "prettier-standard": "16.4.1",
-    "sortablejs": "^1.14.0",
-    "typescript": "^4.4.3",
+    "sortablejs": "^1.15.0",
+    "typescript": "^4.8.4",
     "vite": "^2.6.5"
   },
   "peerDependencies": {
-    "@hotwired/stimulus": "^3.0.1",
-    "@rails/request.js": "^0.0.5",
-    "sortablejs": "^1.14.0"
+    "@hotwired/stimulus": "^3.1.1",
+    "@rails/request.js": "^0.0.6",
+    "sortablejs": "^1.15.0"
   }
 }

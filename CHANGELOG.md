@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.3.0]
+
+### Chore
+
+- Upgrading Node to 16
+- Bump dependencies
+- Using dependencies as `external` libraries to reduce package size.
+
 ## [3.2.0] - 2022-02-04
 
 ### Added
