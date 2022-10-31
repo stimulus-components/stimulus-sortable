@@ -9,6 +9,7 @@ export default class extends Controller {
   responseKindValue: string
   sortable: Sortable
   handleValue: string
+  draggableValue: string
   // @ts-ignore
   element: HTMLElement
 
@@ -23,7 +24,8 @@ export default class extends Controller {
       default: 'html'
     },
     animation: Number,
-    handle: String
+    handle: String,
+    draggable: String
   }
 
   initialize () {
@@ -56,6 +58,7 @@ export default class extends Controller {
   get options (): Sortable.Options {
     return {
       animation: this.animationValue || this.defaultOptions.animation || 150,
+      draggable: this.draggableValue || this.defaultOptions.draggable || undefined,
       handle: this.handleValue || this.defaultOptions.handle || undefined,
       onEnd: this.end
     }
