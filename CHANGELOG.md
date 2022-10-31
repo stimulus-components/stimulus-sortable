@@ -6,7 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [3.3.0]
+## [4.0.0] - 2022-10-31
+
+### Chore
+
+- **Breaking** Replacing `end` method by `onUpdate` to make patch request only if position actually changed.
+
+## [3.3.0] - 2022-10-31
 
 ### Chore
 

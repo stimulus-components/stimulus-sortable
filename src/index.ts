@@ -27,7 +27,7 @@ export default class extends Controller {
   }
 
   initialize () {
-    this.end = this.end.bind(this)
+    this.onUpdate = this.onUpdate.bind(this)
   }
 
   connect () {
@@ -42,7 +42,7 @@ export default class extends Controller {
     this.sortable = undefined
   }
 
-  async end ({ item, newIndex }) {
+  async onUpdate ({ item, newIndex }) {
     if (!item.dataset.sortableUpdateUrl) return
 
     const param = this.resourceNameValue ? `${this.resourceNameValue}[${this.paramNameValue}]` : this.paramNameValue
@@ -57,7 +57,7 @@ export default class extends Controller {
     return {
       animation: this.animationValue || this.defaultOptions.animation || 150,
       handle: this.handleValue || this.defaultOptions.handle || undefined,
-      onEnd: this.end
+      onUpdate: this.onUpdate
     }
   }
 
