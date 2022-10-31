@@ -12,7 +12,7 @@ A Stimulus controller to reorder lists with drag-and-drop.
 
 ## 📚 Documentation
 
-See [stimulus-sortable documentation](https://stimulus-components.netlify.app/docs/components/stimulus-sortable/).
+See [stimulus-sortable documentation](https://www.stimulus-components.com/docs/stimulus-sortable/).
 
 ## 👷‍♂️ Contributing
 
