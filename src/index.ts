@@ -31,9 +31,16 @@ export default class extends Controller {
   }
 
   connect () {
-    this.sortable = new Sortable(this.element, {
-      ...this.defaultOptions,
-      ...this.options
+    let sortableElements = [this.element]
+    sortableElements.push(
+      ...this.element.querySelectorAll('.nested-sortable')
+    )
+
+    sortableElements.forEach(sortableEl => {
+      new Sortable(sortableEl, {
+        ...this.defaultOptions,
+        ...this.options
+      })
     })
   }
 
