@@ -50,7 +50,7 @@ export default class extends Controller {
     const data = new FormData()
     data.append(param, newIndex + 1)
 
-    await patch(item.dataset.sortableUpdateUrl, { body: data, responseKind: this.responseKindValue })
+    return await patch(item.dataset.sortableUpdateUrl, { body: data, responseKind: this.responseKindValue })
   }
 
   get options (): Sortable.Options {
