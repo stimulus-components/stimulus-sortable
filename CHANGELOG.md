@@ -6,9 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.1] - 2023-06-16
+
 ### Added
 
 - Return the response object from `onUpdate`
+
+### Chore
+
+- Bump dependencies.
 
 ## [4.1.0] - 2022-12-25
 
