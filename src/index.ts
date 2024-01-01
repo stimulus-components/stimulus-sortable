@@ -9,6 +9,7 @@ export default class extends Controller {
   responseKindValue: string
   sortable: Sortable
   handleValue: string
+  indexOffsetValue: number
   // @ts-ignore
   element: HTMLElement
 
@@ -23,7 +24,11 @@ export default class extends Controller {
       default: 'html'
     },
     animation: Number,
-    handle: String
+    handle: String,
+    indexOffset: {
+      type: Number,
+      default: 1
+    }
   }
 
   initialize () {
@@ -48,7 +53,7 @@ export default class extends Controller {
     const param = this.resourceNameValue ? `${this.resourceNameValue}[${this.paramNameValue}]` : this.paramNameValue
 
     const data = new FormData()
-    data.append(param, newIndex + 1)
+    data.append(param, newIndex + this.indexOffsetValue)
 
     return await patch(item.dataset.sortableUpdateUrl, { body: data, responseKind: this.responseKindValue })
   }
