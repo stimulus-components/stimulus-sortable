@@ -27,7 +27,7 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
     "@hotwired/stimulus": "^3.2.1",
-    "@rails/request.js": "^0.0.8",
+    "@rails/request.js": "^0.0.9",
     "@types/sortablejs": "^1.15.1",
     "autoprefixer": "^10.4.14",
     "np": "^7.6.2",
