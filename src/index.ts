@@ -1,48 +1,46 @@
-import { Controller } from '@hotwired/stimulus'
-import Sortable from 'sortablejs'
-import { patch } from '@rails/request.js'
+import { Controller } from "@hotwired/stimulus"
+import Sortable from "sortablejs"
+import { patch, Options } from "@rails/request.js"
 
-export default class extends Controller {
+export default class extends Controller<HTMLElement> {
   animationValue: number
   resourceNameValue: string
   paramNameValue: string
-  responseKindValue: string
+  responseKindValue: Options["responseKind"]
   sortable: Sortable
   handleValue: string
-  // @ts-ignore
-  element: HTMLElement
 
   static values = {
     resourceName: String,
     paramName: {
       type: String,
-      default: 'position'
+      default: "position",
     },
     responseKind: {
       type: String,
-      default: 'html'
+      default: "html",
     },
     animation: Number,
-    handle: String
+    handle: String,
   }
 
-  initialize () {
+  initialize() {
     this.onUpdate = this.onUpdate.bind(this)
   }
 
-  connect () {
+  connect() {
     this.sortable = new Sortable(this.element, {
       ...this.defaultOptions,
-      ...this.options
+      ...this.options,
     })
   }
 
-  disconnect () {
+  disconnect() {
     this.sortable.destroy()
     this.sortable = undefined
   }
 
-  async onUpdate ({ item, newIndex }) {
+  async onUpdate({ item, newIndex }) {
     if (!item.dataset.sortableUpdateUrl) return
 
     const param = this.resourceNameValue ? `${this.resourceNameValue}[${this.paramNameValue}]` : this.paramNameValue
@@ -53,15 +51,15 @@ export default class extends Controller {
     return await patch(item.dataset.sortableUpdateUrl, { body: data, responseKind: this.responseKindValue })
   }
 
-  get options (): Sortable.Options {
+  get options(): Sortable.Options {
     return {
       animation: this.animationValue || this.defaultOptions.animation || 150,
       handle: this.handleValue || this.defaultOptions.handle || undefined,
-      onUpdate: this.onUpdate
+      onUpdate: this.onUpdate,
     }
   }
 
-  get defaultOptions (): Sortable.Options {
+  get defaultOptions(): Sortable.Options {
     return {}
   }
 }
