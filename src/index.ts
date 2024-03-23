@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import Sortable from "sortablejs"
 import { patch, Options } from "@rails/request.js"
 
-export default class extends Controller<HTMLElement> {
+export default class StimulusSortable extends Controller<HTMLElement> {
   animationValue: number
   resourceNameValue: string
   paramNameValue: string
