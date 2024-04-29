@@ -29,14 +29,20 @@ export default class StimulusSortable extends Controller<HTMLElement> {
   }
 
   connect() {
-    this.sortable = new Sortable(this.element, {
-      ...this.defaultOptions,
-      ...this.options,
-    })
+    if (Sortable.active) {
+      this.sortable = Sortable.get(this.element)
+    } else {
+      this.sortable = new Sortable(this.element, {
+        ...this.defaultOptions,
+        ...this.options,
+      })
+    }
   }
 
   disconnect() {
-    this.sortable.destroy()
+    if (!Sortable.active) {
+      this.sortable.destroy()
+    }
     this.sortable = undefined
   }
 
