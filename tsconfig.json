@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "lib": ["dom", "es6"],
-    "types": ["vite/client"],
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "exclude": ["node_modules", "spec", "jest"]
-}
